@@ -7,6 +7,7 @@ var apiKey = "36ded1ba363e28fda838ee1a00dc51af";
 
 function getCoords() {
     var city = $('#city-input').val();
+    // if statement if the user missplells a city
     var url="http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=36ded1ba363e28fda838ee1a00dc51af";
     fetch(url)
     .then(function(response) {
@@ -17,7 +18,7 @@ function getCoords() {
         getWeather();
     
 
-
+        
 
 
 function getWeather() {
@@ -41,6 +42,8 @@ function getWeather() {
         $("#feels-like").text("Feels like: " + data.main.feels_like + "°F");
         $("#wind").text("Wind speed: " + data.wind.speed + "MPH");
         $("#humidity").text("Humidity: " + data.main.humidity + "%");
+        var weatherBox = document.getElementById('city-weather');
+        weatherBox.classList.add("bg-success-subtle");
         getForecast();
     })
 
