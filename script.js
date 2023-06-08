@@ -23,8 +23,8 @@ function getCoords() {
 function getWeather() {
     var lat = data[0].lat;
     var lon = data[0].lon;
-    var url = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=36ded1ba363e28fda838ee1a00dc51af";
-    fetch(url)
+    var urlMain = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=36ded1ba363e28fda838ee1a00dc51af";
+    fetch(urlMain)
     .then(function (response) {
         return response.json();
     })
@@ -41,7 +41,20 @@ function getWeather() {
         $("#feels-like").text("Feels like: " + data.main.feels_like + "°F");
         $("#wind").text("Wind speed: " + data.wind.speed + "MPH");
         $("#humidity").text("Humidity: " + data.main.humidity + "%");
+        getForecast();
     })
+
+    function getForecast() {
+        var urlForecast = "api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=36ded1ba363e28fda838ee1a00dc51af";
+        fetch(urlForecast)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+        })
+    }
+
 }
 })
 }
