@@ -29,32 +29,34 @@ function getWeather() {
     .then(function (response) {
         return response.json();
     })
-    .then(function (data) {
-        console.log(data);
+    .then(function (info) {
+        console.log(info);
         var icon = document.createElement('img');
-        icon.src = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+        icon.src = "http://openweathermap.org/img/w/" + info.weather[0].icon + ".png";
         
-        $("#city-name").text(data.name + " | " + today);
+        $("#city-name").text(info.name + " | " + today);
         var iconPlacement = document.getElementById("city-name");
         iconPlacement.appendChild(icon);
-        $("#description").text(data.weather[0].description);
-        $("#temp").text("Tempurature: " + data.main.temp + "°F");
-        $("#feels-like").text("Feels like: " + data.main.feels_like + "°F");
-        $("#wind").text("Wind speed: " + data.wind.speed + "MPH");
-        $("#humidity").text("Humidity: " + data.main.humidity + "%");
+        $("#description").text(info.weather[0].description);
+        $("#temp").text("Tempurature: " + info.main.temp + "°F");
+        $("#feels-like").text("Feels like: " + info.main.feels_like + "°F");
+        $("#wind").text("Wind speed: " + info.wind.speed + "MPH");
+        $("#humidity").text("Humidity: " + info.main.humidity + "%");
         var weatherBox = document.getElementById('city-weather');
         weatherBox.classList.add("bg-success-subtle");
         getForecast();
     })
 
     function getForecast() {
-        var urlForecast = "api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=36ded1ba363e28fda838ee1a00dc51af";
+        var lat = data[0].lat;
+        var lon = data[0].lon;
+        var urlForecast = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&limit=5&appid=36ded1ba363e28fda838ee1a00dc51af";
         fetch(urlForecast)
         .then(function (response) {
             return response.json();
         })
-        .then(function (data) {
-            console.log(data);
+        .then(function (fore) {
+            console.log(fore);
         })
     }
 
