@@ -186,7 +186,7 @@ $('#saved-button').on('click', function(e) {
     
     function getCoordsSaved() {
         
-        city = savedCity;
+        var city = savedCity;
        // if statement if the user missplells a city
        var url="http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=36ded1ba363e28fda838ee1a00dc51af";
        fetch(url)
