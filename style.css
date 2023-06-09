@@ -23,3 +23,8 @@
 #description {
     font-style: italic;
 }
+
+.btn {
+    display: block;
+    margin: 3px;
+}
