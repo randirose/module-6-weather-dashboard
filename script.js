@@ -1,8 +1,47 @@
 // $(document).ready(function (){
 var today = dayjs().format('dddd, MMMM DD, YYYY');
-
 var apiKey = "36ded1ba363e28fda838ee1a00dc51af";
+var city = $('#city-input').val();
 
+var buttonList = document.getElementById('button-list');
+    var buttons = [];
+    function renderButtons() {
+        buttonList.innerHTML= "";
+        for (var i = 0; i < buttons.length; i++) {
+            var button = buttons[i];
+            var buttonLi = document.createElement('li');
+            buttonLi.text(button);
+            buttonLi.setAttribute("data-index", i);
+
+            buttonList.appendChild(buttonLi);
+            
+        }
+    }
+    function init() {
+        var storedButtons = JSON.parse(localStorage.getItem("buttons"));
+        if (storedButtons !== null) {
+            buttons = storedButtons;
+        }
+        renderButtons();
+    }
+    function storeButtons() {
+        localStorage.setItem("buttons", JSON.stringify(buttons));
+    }
+
+    $('#submit').on('click', function(e) {
+        e.preventDefault();
+        
+        buttonText = $('#city-input').val();
+
+        if (city === "") {
+            return;
+        }
+
+        buttons.push(buttonText);
+        $('#city-input').val() = "";
+        storeButtons();
+        renderButtons();
+    })
 
 
 function getCoords() {
@@ -16,6 +55,8 @@ function getCoords() {
     .then(function (data) {
         console.log(data);
         getWeather();
+    
+    
     
 
         
@@ -137,17 +178,16 @@ $('#submit').on('click', function(e) {
     e.preventDefault();
     getCoords();
 })
-
-
-
-
-
-
-
-
-
-
-
-
+init();
 
 // })
+
+
+
+
+
+
+
+
+
+
