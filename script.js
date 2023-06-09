@@ -44,6 +44,7 @@ function getWeather() {
         $("#humidity").text("Humidity: " + info.main.humidity + "%");
         var weatherBox = document.getElementById('city-weather');
         weatherBox.classList.add("bg-success-subtle");
+        weatherBox.classList.add("main-design");
         getForecast();
     })
 

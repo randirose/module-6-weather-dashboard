@@ -15,3 +15,11 @@
     border: solid black 3px;
     background-color: aliceblue;
 }
+
+.main-design {
+    border: solid black 3px;
+}
+
+#description {
+    font-style: italic;
+}
