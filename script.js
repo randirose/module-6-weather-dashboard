@@ -11,8 +11,7 @@ var buttonList = document.getElementById('button-list');
             var buttonLi = document.createElement('button');
             buttonLi.textContent = button;
             buttonLi.setAttribute("data-index", i);
-            buttonLi.setAttribute('class', 'btn btn-outline-secondary');
-            buttonLi.setAttribute('id', 'saved-button')
+            buttonLi.setAttribute('class', 'btn btn-outline-secondary saved-button');
             buttonList.appendChild(buttonLi);
             
         }
@@ -177,9 +176,9 @@ $('#submit').on('click', function(e) {
 })
 
 
-$('#saved-button').on('click', function(e) {
+$('#button-list').on('click', '.saved-button', function(e) {
     // e.preventDefault();
-    let savedCity = $(e.target).val();
+    let savedCity = $(e.target).text();
     getCoordsSaved();
     
     
