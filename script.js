@@ -57,6 +57,7 @@ function getWeather() {
         })
         .then(function (fore) {
             console.log(fore);
+            
         })
     }
 
