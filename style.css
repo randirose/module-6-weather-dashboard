@@ -2,3 +2,16 @@
     display: inline-block;
     border: none;
 }
+
+.card-title {
+    font-size: 85%;
+    font-weight: bolder;
+}
+.card-text {
+    font-size: 75%;
+}
+
+.card-design {
+    border: solid black 3px;
+    background-color: aliceblue;
+}
