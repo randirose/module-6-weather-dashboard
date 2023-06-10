@@ -35,8 +35,10 @@ function storeButtons() {
 $('#submit').on('click', function(e) {
     e.preventDefault();
     var city = $('#city-input').val();
-    buttonText = city;
-    if (city === "") {
+    var buttonText = city;
+
+    // if the user clicks submit with nothing in the input box, it will kick them out of this function and not create an empty button. if statement in getCoords function will kick the user out of those if input is null
+    if (buttonText === "") {
         return;
     }
 
@@ -60,7 +62,7 @@ function getCoords() {
         return response.json();
     })
     .then(function (data) {
-        // if user inputs a city that returns 0 results (the api is not able to pull in a city by that name), the browser will alert the user to input a valid city
+        // if user inputs a city that returns 0 results (the api is not able to pull in a city by that name; misspelled, etc), the browser will alert the user to input a valid city
         if (data.length === 0) {
             alert("Please enter a valid city")
             return;
