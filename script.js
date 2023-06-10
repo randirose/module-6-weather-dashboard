@@ -1,9 +1,9 @@
-// $(document).ready(function (){
 var today = dayjs().format('dddd, MMMM DD, YYYY');
 var apiKey = "36ded1ba363e28fda838ee1a00dc51af";
-
 var buttonList = document.getElementById('button-list');
     var buttons = [];
+
+    // function to run after init, which renders the prev. searched buttons
     function renderButtons() {
         buttonList.innerHTML= "";
         for (var i = 0; i < buttons.length; i++) {
@@ -16,6 +16,8 @@ var buttonList = document.getElementById('button-list');
             
         }
     }
+
+    // called to run upon page loading
     function init() {
         var storedButtons = JSON.parse(localStorage.getItem("buttons"));
         if (storedButtons !== null) {
@@ -32,17 +34,12 @@ var buttonList = document.getElementById('button-list');
         
         buttonText = $('#city-input').val();
 
-        // if (city === "") {
-        //     return;
-        // }
-
         buttons.push(buttonText);
-        // $('#city-input').val() = "";
         storeButtons();
         renderButtons();
     })
 
-
+// function to run when the user types in a city and clicks the submit button
 function getCoords() {
      var city = $('#city-input').val();
      
@@ -170,19 +167,20 @@ function getWeather() {
 })
 }
 
+// event listener for when the user types in a city and clicks the submit button
 $('#submit').on('click', function(e) {
     e.preventDefault();
     getCoords();
 })
 
-
+// event listener for when the user clicks on one of the prev. searched buttons
 $('#button-list').on('click', '.saved-button', function(e) {
     // e.preventDefault();
     let savedCity = $(e.target).text();
     getCoordsSaved();
     
-    
-    
+})
+    // function to set var city as the text from the button a user clicks
     function getCoordsSaved() {
         
         var city = savedCity;
@@ -309,7 +307,6 @@ $('#button-list').on('click', '.saved-button', function(e) {
    }
    })
    }
-})
 
 
 init();
