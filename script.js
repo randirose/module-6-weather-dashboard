@@ -34,8 +34,11 @@ function storeButtons() {
 // event listener to add user input to buttons, store those buttons and render it to the page
 $('#submit').on('click', function(e) {
     e.preventDefault();
-        
-    buttonText = $('#city-input').val();
+    var city = $('#city-input').val();
+    buttonText = city;
+    if (city === "") {
+        return;
+    }
 
     buttons.push(buttonText);
     storeButtons();
@@ -45,15 +48,23 @@ $('#submit').on('click', function(e) {
 // function to run when the user types in a city and clicks the submit button, makes api call based on 'city' to get 'lat' and 'lon' to pass onto the following functions
 function getCoords() {
     var city = $('#city-input').val();
-     
-    // if statement if the user missplells a city*************
 
     var url="http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=36ded1ba363e28fda838ee1a00dc51af";
     fetch(url)
     .then(function(response) {
+        // if the input for city name is null, the geocode api call will throw an error and alert the user to input a city name
+        if (response.status !== 200) {
+            alert("Please enter a city name");
+            return;
+        }
         return response.json();
     })
     .then(function (data) {
+        // if user inputs a city that returns 0 results (the api is not able to pull in a city by that name), the browser will alert the user to input a valid city
+        if (data.length === 0) {
+            alert("Please enter a valid city")
+            return;
+        }
         console.log(data);
         getWeather(data[0].lat, data[0].lon);
         getForecast(data[0].lat, data[0].lon);
@@ -63,14 +74,16 @@ function getCoords() {
 // function to run when the user clicks one of the previously searched buttons, sets var city as the text from the button a user clicks, passes lat and lon to following functions
 function getCoordsSaved(city) {
 
-    // if statement if the user missplells a city***************
-
     var url="http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=36ded1ba363e28fda838ee1a00dc51af";
     fetch(url)
     .then(function(response) {
         return response.json();
     })
     .then(function (data) {
+        if (data.length === 0) {
+            alert("Please enter a valid city")
+            return;
+        }
         console.log(data);
         getWeather(data[0].lat, data[0].lon);
         getForecast(data[0].lat, data[0].lon);
