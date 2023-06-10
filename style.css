@@ -14,17 +14,18 @@
 }
 
 .card-title {
-    font-size: 85%;
+    font-size: 100%;
     font-weight: bolder;
 }
 .card-text {
-    font-size: 75%;
+    font-size: 90%;
 }
 
 .card-design {
     border: solid black 3px;
     background-color: aliceblue;
     width: 200px;
+    height: 240px;
     border-radius: 1rem;
 }
 
@@ -50,5 +51,5 @@
 
 #description {
     font-size: 150%;
-    padding-bottom: 3px;
+    padding-bottom: 10px;
 }
