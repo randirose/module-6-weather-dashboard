@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <div class="row bg-primary-subtle wv=100">
             <div class="col-12">
-                <h1 class="custom-header">Weather Dashboard</h1>
+                <h1 class="custom-header p-2">Weather Dashboard</h1>
             </div>
         </div>
     </div>
@@ -20,19 +20,19 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-6 col-lg-3 mt-5">
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 ms-3">
                     <input id="city-input" type="text" class="form-control" placeholder="Enter city name here" aria-label="Enter city name here" aria-describedby="button-addon1">
-                    <button class="btn btn-outline-secondary" type="button" id="submit">Get Weather</button>
+                    <button class="btn btn-secondary" type="button" id="submit">Get Weather</button>
                 </div>
                 <div>
                     <ul id="button-list">
-
+                    <!-- add buttons in js from local storage -->
                     </ul>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-9 mt-5">
                 <div id="city-weather" class="p-2">
-                    <!-- add elements generated from api call -->
+                    <!-- add text to elements generated from api call -->
                     <h2 id="city-name"></h2>
                     <h3 id="description"></h3>
                     <p id="temp"></p>
