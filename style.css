@@ -1,6 +1,7 @@
 .card {
     display: inline-block;
     border: none;
+    margin-top: 5px;
 }
 
 .card-title {
@@ -14,17 +15,26 @@
 .card-design {
     border: solid black 3px;
     background-color: aliceblue;
+    width: 200px;
+    border-radius: 1rem;
 }
 
 .main-design {
     border: solid black 3px;
+    border-radius: 1rem;
 }
 
 #description {
     font-style: italic;
 }
 
-.btn {
+#button-list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.saved-button {
     display: block;
     margin: 3px;
 }
