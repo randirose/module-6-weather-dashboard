@@ -51,7 +51,7 @@ $('#submit').on('click', function(e) {
 function getCoords() {
     var city = $('#city-input').val();
 
-    var url="http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=36ded1ba363e28fda838ee1a00dc51af";
+    var url="http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + apiKey;
     fetch(url)
     .then(function(response) {
         // if the input for city name is null, the geocode api call will throw an error and alert the user to input a city name
@@ -76,7 +76,7 @@ function getCoords() {
 // function to run when the user clicks one of the previously searched buttons, sets var city as the text from the button a user clicks, passes lat and lon to following functions
 function getCoordsSaved(city) {
 
-    var url="http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=36ded1ba363e28fda838ee1a00dc51af";
+    var url="http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + apiKey;
     fetch(url)
     .then(function(response) {
         return response.json();
@@ -94,7 +94,7 @@ function getCoordsSaved(city) {
 
 // function makes api call to get that current day's weather and print to page; uses the lat and lon gotten from the getCoords and getCoordsSaved functions 
 function getWeather(lat, lon) {
-    var urlMain = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=36ded1ba363e28fda838ee1a00dc51af";
+    var urlMain = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + apiKey;
     fetch(urlMain)
     .then(function (response) {
         return response.json();
@@ -120,7 +120,7 @@ function getWeather(lat, lon) {
 
 // function makes api call to get the 5 day forecast (in 3hr increments) and print to page; uses the lat and lon gotten from the getCoords and getCoordsSaved functions 
 function getForecast(lat, lon) {
-    var urlForecast = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=36ded1ba363e28fda838ee1a00dc51af";
+    var urlForecast = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + apiKey;
     fetch(urlForecast)
     .then(function (response) {
         return response.json();
