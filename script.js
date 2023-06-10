@@ -48,7 +48,7 @@ function getCoords() {
      
     // if statement if the user missplells a city*************
 
-    var url="http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=36ded1ba363e28fda838ee1a00dc51af";
+    var url="http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=36ded1ba363e28fda838ee1a00dc51af";
     fetch(url)
     .then(function(response) {
         return response.json();
@@ -65,7 +65,7 @@ function getCoordsSaved(city) {
 
     // if statement if the user missplells a city***************
 
-    var url="http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=36ded1ba363e28fda838ee1a00dc51af";
+    var url="http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=36ded1ba363e28fda838ee1a00dc51af";
     fetch(url)
     .then(function(response) {
         return response.json();
