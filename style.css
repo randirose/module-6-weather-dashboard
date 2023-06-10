@@ -47,3 +47,8 @@
     display: block;
     margin: 3px;
 }
+
+#description {
+    font-size: 150%;
+    padding-bottom: 3px;
+}

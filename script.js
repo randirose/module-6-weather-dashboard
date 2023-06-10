@@ -108,7 +108,7 @@ function getWeather(lat, lon) {
         var iconPlacement = document.getElementById("city-name");
         iconPlacement.appendChild(icon);
         $("#description").text(info.weather[0].description);
-        $("#temp").text("Tempurature: " + info.main.temp + "°F");
+        $("#temp").text("Temp: " + info.main.temp + "°F");
         $("#feels-like").text("Feels like: " + info.main.feels_like + "°F");
         $("#wind").text("Wind speed: " + info.wind.speed + "MPH");
         $("#humidity").text("Humidity: " + info.main.humidity + "%");
@@ -162,11 +162,11 @@ function getForecast(lat, lon) {
         var iconPlacement5 = document.getElementById("day-5-day");
         iconPlacement5.appendChild(icon5);
 
-        $('#day-1-temp').text("Temperature: " + fore.list[7].main.temp + "°F");
-        $('#day-2-temp').text("Temperature: " + fore.list[15].main.temp + "°F");
-        $('#day-3-temp').text("Temperature: " + fore.list[23].main.temp + "°F");
-        $('#day-4-temp').text("Temperature: " + fore.list[31].main.temp + "°F");
-        $('#day-5-temp').text("Temperature: " + fore.list[39].main.temp + "°F");
+        $('#day-1-temp').text("Temp: " + fore.list[7].main.temp + "°F");
+        $('#day-2-temp').text("Temp: " + fore.list[15].main.temp + "°F");
+        $('#day-3-temp').text("Temp: " + fore.list[23].main.temp + "°F");
+        $('#day-4-temp').text("Temp: " + fore.list[31].main.temp + "°F");
+        $('#day-5-temp').text("Temp: " + fore.list[39].main.temp + "°F");
 
         $('#day-1-feels-like').text("Feels like: " + fore.list[7].main.feels_like + "°F");
         $('#day-2-feels-like').text("Feels like: " + fore.list[15].main.feels_like + "°F");
