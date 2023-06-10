@@ -179,7 +179,7 @@ $('#button-list').on('click', '.saved-button', function(e) {
     let savedCity = $(e.target).text();
     getCoordsSaved();
     
-})
+
     // function to set var city as the text from the button a user clicks
     function getCoordsSaved() {
         
@@ -307,13 +307,6 @@ $('#button-list').on('click', '.saved-button', function(e) {
    }
    })
    }
-
+})
 
 init();
-
-
-
-
-
-
-
