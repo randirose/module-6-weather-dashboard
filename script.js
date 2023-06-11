@@ -47,7 +47,7 @@ $('#submit').on('click', function(e) {
     renderButtons();
 })
 
-// autofill widget for search input; include 100 popular cities to search but not all
+// autofill widget for search input; includes 100 US cities and 50 global cities (largest based on population) to search bar autofill
 $(function () {
     var cityNames = [
         "New York",
