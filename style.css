@@ -53,3 +53,11 @@
     font-size: 150%;
     padding-bottom: 10px;
 }
+
+.ui-autocomplete .ui-menu-item {
+    font-style: italic;
+    color: black;
+    background-color: #cfe2ff;;
+    list-style: none;
+    width: 10%;
+  }
