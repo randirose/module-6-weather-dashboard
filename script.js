@@ -47,9 +47,8 @@ $('#submit').on('click', function(e) {
     renderButtons();
 })
 
-// function to run when the user types in a city and clicks the submit button, makes api call based on 'city' to get 'lat' and 'lon' to pass onto the following functions
-function getCoords() {
-    var city = $('#city-input').val();
+// function to run when the user types in a city and clicks the submit button, or when they click one of the prev. searched buttons; makes api call based on 'city' (defined in event listener functions and passed to this one) to get 'lat' and 'lon' to pass onto the following functions
+function getCoords(city) {
 
     var url="http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + apiKey;
     fetch(url)
@@ -63,25 +62,6 @@ function getCoords() {
     })
     .then(function (data) {
         // if user inputs a city that returns 0 results (the api is not able to pull in a city by that name; misspelled, etc), the browser will alert the user to input a valid city
-        if (data.length === 0) {
-            alert("Please enter a valid city")
-            return;
-        }
-        console.log(data);
-        getWeather(data[0].lat, data[0].lon);
-        getForecast(data[0].lat, data[0].lon);
-    })
-}
-
-// function to run when the user clicks one of the previously searched buttons, sets var city as the text from the button a user clicks, passes lat and lon to following functions
-function getCoordsSaved(city) {
-
-    var url="http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + apiKey;
-    fetch(url)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function (data) {
         if (data.length === 0) {
             alert("Please enter a valid city")
             return;
@@ -202,15 +182,15 @@ function getForecast(lat, lon) {
 // event listener for when the user types in a city and clicks the submit button
 $('#submit').on('click', function(e) {
     e.preventDefault();
-    getCoords();
+    var city = $('#city-input').val();
+    getCoords(city);
 })
 
 // event listener for when the user clicks on one of the prev. searched buttons
 $('#button-list').on('click', '.saved-button', function(e) {
     e.preventDefault();
-    let savedCity = $(e.target).text();
-    var city = savedCity;
-    getCoordsSaved(city);
+    var city = $(e.target).text();
+    getCoords(city);
 })
     
 init();
