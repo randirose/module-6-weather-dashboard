@@ -209,7 +209,7 @@ $(function () {
 // function to run when the user types in a city and clicks the submit button, or when they click one of the prev. searched buttons; makes api call based on 'city' (defined in event listener functions and passed to this one) to get 'lat' and 'lon' to pass onto the following functions
 function getCoords(city) {
 
-    var url="http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + apiKey;
+    var url="https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + apiKey;
     fetch(url)
     .then(function(response) {
         // if the input for city name is null, the geocode api call will throw an error and alert the user to input a city name
