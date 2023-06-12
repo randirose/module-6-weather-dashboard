@@ -225,7 +225,6 @@ function getCoords(city) {
             alert("Please enter a valid city")
             return;
         }
-        console.log(data);
         getWeather(data[0].lat, data[0].lon);
         getForecast(data[0].lat, data[0].lon);
     })
@@ -239,7 +238,6 @@ function getWeather(lat, lon) {
         return response.json();
     })
     .then(function (info) {
-        console.log(info);
         var icon = document.createElement('img');
         icon.src = "http://openweathermap.org/img/w/" + info.weather[0].icon + ".png";
         
@@ -265,7 +263,6 @@ function getForecast(lat, lon) {
         return response.json();
     })
     .then(function (fore) {
-        console.log(fore);
         $('#day-1-day').text(dayjs(today).add(1, 'day').format('ddd MM/DD/YY'));
 
         var icon1 = document.createElement('img');
