@@ -239,7 +239,7 @@ function getWeather(lat, lon) {
     })
     .then(function (info) {
         var icon = document.createElement('img');
-        icon.src = "http://openweathermap.org/img/w/" + info.weather[0].icon + ".png";
+        icon.src = "https://openweathermap.org/img/w/" + info.weather[0].icon + ".png";
         
         $("#city-name").text(info.name + " | " + today);
         var iconPlacement = document.getElementById("city-name");
@@ -266,35 +266,35 @@ function getForecast(lat, lon) {
         $('#day-1-day').text(dayjs(today).add(1, 'day').format('ddd MM/DD/YY'));
 
         var icon1 = document.createElement('img');
-        icon1.src = "http://openweathermap.org/img/w/" + fore.list[7].weather[0].icon + ".png";
+        icon1.src = "https://openweathermap.org/img/w/" + fore.list[7].weather[0].icon + ".png";
         var iconPlacement1 = document.getElementById("day-1-day");
         iconPlacement1.appendChild(icon1);
 
         $('#day-2-day').text(dayjs(today).add(2, 'day').format('ddd MM/DD/YY'));
 
         var icon2 = document.createElement('img');
-        icon2.src = "http://openweathermap.org/img/w/" + fore.list[15].weather[0].icon + ".png";
+        icon2.src = "https://openweathermap.org/img/w/" + fore.list[15].weather[0].icon + ".png";
         var iconPlacement2 = document.getElementById("day-2-day");
         iconPlacement2.appendChild(icon2);
 
         $('#day-3-day').text(dayjs(today).add(3, 'day').format('ddd MM/DD/YY'));
 
         var icon3 = document.createElement('img');
-        icon3.src = "http://openweathermap.org/img/w/" + fore.list[23].weather[0].icon + ".png";
+        icon3.src = "https://openweathermap.org/img/w/" + fore.list[23].weather[0].icon + ".png";
         var iconPlacement3 = document.getElementById("day-3-day");
         iconPlacement3.appendChild(icon3);
 
         $('#day-4-day').text(dayjs(today).add(4, 'day').format('ddd MM/DD/YY'));
 
         var icon4 = document.createElement('img');
-        icon4.src = "http://openweathermap.org/img/w/" + fore.list[31].weather[0].icon + ".png";
+        icon4.src = "https://openweathermap.org/img/w/" + fore.list[31].weather[0].icon + ".png";
         var iconPlacement4 = document.getElementById("day-4-day");
         iconPlacement4.appendChild(icon4);
 
         $('#day-5-day').text(dayjs(today).add(5, 'day').format('ddd MM/DD/YY'));
 
         var icon5 = document.createElement('img');
-        icon5.src = "http://openweathermap.org/img/w/" + fore.list[39].weather[0].icon + ".png";
+        icon5.src = "https://openweathermap.org/img/w/" + fore.list[39].weather[0].icon + ".png";
         var iconPlacement5 = document.getElementById("day-5-day");
         iconPlacement5.appendChild(icon5);
 
