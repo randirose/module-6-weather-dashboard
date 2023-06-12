@@ -36,7 +36,7 @@ See a screenshot of functioning page here:
 
 ## Credits
 
-AskBCS --
+- AskBCS: The AskBCS Learning Assistant was used on this project to help with my local storage function and the previously searched buttons. They helped me find and correct minor syntax errors that got my function working properly. They also helped me with passing data values (lat and lon) from one function to another, which helped clean up my code.
 
 ## Features
 
